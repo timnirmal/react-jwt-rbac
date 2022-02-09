@@ -17,9 +17,11 @@ const login = (username, password) => {
     return axios
         .post(API_URL + "signin", {username, password})
         .then(response => {
-            if (response.data.token) {
+            console.log("Login Data", response.data);
+            if (response.data.accessToken) {
                 localStorage.setItem("user", JSON.stringify(response.data));
             }
+            console.log("Data Saved in Local Storage");
             return response.data;
         });
 };
@@ -29,6 +31,7 @@ const logout = () => {
 };
 
 const getCurrentUser = () => {
+    console.log(localStorage.getItem("user"));
     return JSON.parse(localStorage.getItem("user"))
 };
 
