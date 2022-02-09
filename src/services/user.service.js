@@ -1,12 +1,22 @@
 import axios from 'axios';
 import authHeader from './auth-header';
 
-const API_URL = 'http://localhost:8081/api/test';
+const API_URL = process.env.REACT_APP_BACKEND_URL + '/api/test';
 
-const getPublicContent = () => axios.get(API_URL + '/all');
-const getUserBoard = () => axios.get(API_URL + '/user', {headers: authHeader()});
-const getModeratorBoard = () => axios.get(API_URL + '/mod', {headers: authHeader()});
-const getAdminBoard = () => axios.get(API_URL + '/admin', {headers: authHeader()});
+const getPublicContent = () => {
+    return axios.get(API_URL + '/all');
+}
+const getUserBoard = () => {
+    console.log(API_URL + '/user');
+    console.log("authHeader : ", authHeader());
+    return axios.get(API_URL + '/user', { headers: authHeader() });
+}
+const getModeratorBoard = () => {
+    return axios.get(API_URL + '/mod', {headers: authHeader()});
+}
+const getAdminBoard = () => {
+    return axios.get(API_URL + '/admin', {headers: authHeader()});
+}
 
 export default {
     getPublicContent,

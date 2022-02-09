@@ -5,8 +5,9 @@ const BoardAdmin = () => {
     const [content, setContent] = useState("");
 
     useEffect(() => {
-        UserService.getUserBoard().then(
+        UserService.getAdminBoard().then(
             (response) => {
+                console.log("Data in Admin", response.data);
                 setContent(response.data)
             },
             (error) => {

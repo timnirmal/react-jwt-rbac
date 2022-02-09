@@ -37,27 +37,48 @@ const App = () => {
 
     return (
         <>
+
             <BrowserRouter>
+                <nav>
+                    <li>
+                        <Link to="/">Home</Link>
+                    </li>
+                    <li>
+                        <Link to="/login">Login</Link>
+                    </li>
+                    <li>
+                        <Link to="/signup">Sign Up</Link>
+                    </li>
+                    <li>
+                        <Link to="/admin">Admin</Link>
+                    </li>
+                    <li>
+                        <Link to="/mod">Moderator</Link>
+                    </li>
+                    <li>
+                        <Link to="/user">User</Link>
+                    </li>
+                    <li>
+                        <Link to="/profile">Profile</Link>
+                    </li>
+                </nav>
+
                 <Routes>
                     <Route exact path="/" element={<Home/>}/>
                     <Route exact path="/login" element={<Login/>}/>
-                    <Route exact path="/register" element={<Register/>}/>
+                    <Route exact path="/signup" element={<Register/>}/>
+
+                    <Route path="/admin" element={<BoardAdmin/>}/>
+                    <Route path="/mod" element={<BoardModerator/>}/>
+                    <Route path="/user" element={<BoardUser/>}/>
+                    <Route path="/profile" element={<Profile/>}/>
+
+                    {/*
                     <Route
                         exact path="/profile"
                         element={<Profile currentUser={currentUser}/>}
                     />
-                    <Route
-                        exact path="/user"
-                        element={<BoardUser currentUser={currentUser}/>}
-                    />
-                    <Route
-                        exact path="/moderator"
-                        element={<BoardModerator currentUser={currentUser}/>}
-                    />
-                    <Route
-                        exact path="/admin"
-                        element={<BoardAdmin currentUser={currentUser}/>}
-                    />
+                    */}
                 </Routes>
             </BrowserRouter>
         </>
