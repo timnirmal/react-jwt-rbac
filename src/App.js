@@ -3,8 +3,7 @@ import {
     BrowserRouter,
     Routes,
     Route,
-    Link,
-    Outlet
+    Link
 } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
@@ -37,29 +36,31 @@ const App = () => {
     };
 
     return (
-        <BrowserRouter>
-            <Routes>
-                <Route exact path="/" element={<Home/>}/>
-                <Route exact path="/login" element={<Login/>}/>
-                <Route exact path="/register" element={<Register/>}/>
-                <Route
-                    exact path="/profile"
-                    element={<Profile currentUser={currentUser}/>}
-                />
-                <Route
-                    exact path="/user"
-                    element={<BoardUser currentUser={currentUser}/>}
-                />
-                <Route
-                    exact path="/moderator"
-                    element={<BoardModerator currentUser={currentUser}/>}
-                />
-                <Route
-                    exact path="/admin"
-                    element={<BoardAdmin currentUser={currentUser}/>}
-                />
-            </Routes>
-        </BrowserRouter>
+        <>
+            <BrowserRouter>
+                <Routes>
+                    <Route exact path="/" element={<Home/>}/>
+                    <Route exact path="/login" element={<Login/>}/>
+                    <Route exact path="/register" element={<Register/>}/>
+                    <Route
+                        exact path="/profile"
+                        element={<Profile currentUser={currentUser}/>}
+                    />
+                    <Route
+                        exact path="/user"
+                        element={<BoardUser currentUser={currentUser}/>}
+                    />
+                    <Route
+                        exact path="/moderator"
+                        element={<BoardModerator currentUser={currentUser}/>}
+                    />
+                    <Route
+                        exact path="/admin"
+                        element={<BoardAdmin currentUser={currentUser}/>}
+                    />
+                </Routes>
+            </BrowserRouter>
+        </>
     );
 };
 

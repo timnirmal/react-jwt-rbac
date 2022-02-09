@@ -7,6 +7,7 @@
 //      getCurrentUser(): get stored user information (including JWT)
 
 import axios from "axios";
+
 const API_URL = "http://localhost:8081/api/auth/";
 
 const register = (username, email, password) => {
