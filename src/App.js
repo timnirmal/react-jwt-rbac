@@ -1,13 +1,11 @@
 import React, {useState, useEffect} from "react";
-import {
-    BrowserRouter,
-    Routes,
-    Route,
-    Link
-} from "react-router-dom";
+import {BrowserRouter, Routes, Route, Link} from "react-router-dom";
+//import { useDispatch, useSelector } from "react-redux";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import AuthService from "./services/auth.service";
+//import AuthVerify from "./common/AuthVerify";
+
 import Login from "./components/Login";
 import Register from "./components/Register";
 import Home from "./components/Home";
@@ -21,6 +19,7 @@ const App = () => {
     const [showModeratorBoard, setShowModeratorBoard] = useState(false);
     const [showAdminBoard, setShowAdminBoard] = useState(false);
     const [currentUser, setCurrentUser] = useState(undefined);
+    // const dispatch = useDispatch();
 
     useEffect(() => {
         const user = AuthService.getCurrentUser();
@@ -33,11 +32,12 @@ const App = () => {
 
     const logOut = () => {
         AuthService.logout();
+        // Redirect page to login
+        window.location.href = "/login";
     };
 
     return (
         <>
-
             <BrowserRouter>
                 <nav>
                     <li>
@@ -60,6 +60,10 @@ const App = () => {
                     </li>
                     <li>
                         <Link to="/profile">Profile</Link>
+                    </li>
+                    <li>
+                        {/*call LogOut function when click on Logout*/}
+                        <button onClick={logOut}>Logout</button>
                     </li>
                 </nav>
 
